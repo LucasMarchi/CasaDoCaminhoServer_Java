@@ -1,0 +1,1 @@
+INSERT INTO voluntario (id, nome) VALUES (1, 'Lucas');

@@ -25,11 +25,11 @@ public class CasadocaminhoApplication {
 	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	    CorsConfiguration config = new CorsConfiguration();
 	    config.setAllowCredentials(true);
-	    config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+	    config.setAllowedOrigins(Collections.singletonList("*"));
 	    config.setAllowedMethods(Collections.singletonList("*"));
 	    config.setAllowedHeaders(Collections.singletonList("*"));
 	    source.registerCorsConfiguration("/**", config);
-	    FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
+	    FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
 	    bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	    return bean;
 	}

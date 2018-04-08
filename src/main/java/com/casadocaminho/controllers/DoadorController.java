@@ -15,41 +15,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.casadocaminho.models.Voluntario;
-import com.casadocaminho.repositories.VoluntarioRepository;
+import com.casadocaminho.models.Doador;
+import com.casadocaminho.repositories.DoadorRepository;
 
 @RestController
-@RequestMapping("/voluntarios")
-public class VoluntarioController {
+@RequestMapping("/doadores")
+public class DoadorController {
 
 	@Autowired
-	private VoluntarioRepository voluntarioRepository;
+	private DoadorRepository doadorRepository;
 
 	@GetMapping
-	public List<Voluntario> listarTodos() {
-		return voluntarioRepository.findAll();
+	public List<Doador> listarTodos() {
+		return doadorRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Voluntario> getVoluntario(@PathVariable("id") Long id) {
-		return voluntarioRepository.findById(id);
+	public Optional<Doador> getDoador(@PathVariable("id") Long id) {
+		return doadorRepository.findById(id);
 	}
 
 	@PostMapping
-	public ResponseEntity<?> cadastrar(@RequestBody Voluntario voluntario) {
-		voluntarioRepository.save(voluntario);
+	public ResponseEntity<?> cadastrar(@RequestBody Doador doador) {
+		doadorRepository.save(doador);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@PutMapping
-	public ResponseEntity<?> atualizar(@RequestBody Voluntario voluntario) {
-		voluntarioRepository.save(voluntario);
+	public ResponseEntity<?> atualizar(@RequestBody Doador doador) {
+		doadorRepository.save(doador);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> excluir(@PathVariable("id") Long id) {
-		 voluntarioRepository.deleteById(id);
+		 doadorRepository.deleteById(id);
 		 return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

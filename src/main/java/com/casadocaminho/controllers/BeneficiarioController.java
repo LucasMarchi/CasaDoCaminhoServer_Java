@@ -15,41 +15,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.casadocaminho.models.Voluntario;
-import com.casadocaminho.repositories.VoluntarioRepository;
+import com.casadocaminho.models.Beneficiario;
+import com.casadocaminho.repositories.BeneficiarioRepository;
 
 @RestController
-@RequestMapping("/voluntarios")
-public class VoluntarioController {
+@RequestMapping("/beneficiarios")
+public class BeneficiarioController {
 
 	@Autowired
-	private VoluntarioRepository voluntarioRepository;
+	private BeneficiarioRepository beneficiarioRepository;
 
 	@GetMapping
-	public List<Voluntario> listarTodos() {
-		return voluntarioRepository.findAll();
+	public List<Beneficiario> listarTodos() {
+		return beneficiarioRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Voluntario> getVoluntario(@PathVariable("id") Long id) {
-		return voluntarioRepository.findById(id);
+	public Optional<Beneficiario> getBeneficiario(@PathVariable("id") Long id) {
+		return beneficiarioRepository.findById(id);
 	}
 
 	@PostMapping
-	public ResponseEntity<?> cadastrar(@RequestBody Voluntario voluntario) {
-		voluntarioRepository.save(voluntario);
+	public ResponseEntity<?> cadastrar(@RequestBody Beneficiario beneficiario) {
+		beneficiarioRepository.save(beneficiario);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@PutMapping
-	public ResponseEntity<?> atualizar(@RequestBody Voluntario voluntario) {
-		voluntarioRepository.save(voluntario);
+	public ResponseEntity<?> atualizar(@RequestBody Beneficiario beneficiario) {
+		beneficiarioRepository.save(beneficiario);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> excluir(@PathVariable("id") Long id) {
-		 voluntarioRepository.deleteById(id);
+		 beneficiarioRepository.deleteById(id);
 		 return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

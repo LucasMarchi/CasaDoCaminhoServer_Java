@@ -1,8 +1,10 @@
 package com.casadocaminho.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -17,11 +19,21 @@ public class Perfil {
 	private String moradia;
 	private String agua;
 	private String esgoto;
-	private boolean coletaDeLixo;
-	private boolean banheiroDentro;
-	private boolean chuveiro;
-	private boolean correio;
-	private boolean janelas;
-	private boolean tanque;
+	private String coletaDeLixo;
+	private String banheiroDentro;
+	private String chuveiro;
+	private String correio;
+	private String janelas;
+	private String tanque;
+	@OneToOne(cascade = CascadeType.ALL)
+	private ProblemasFamiliares problemasFamiliares;
+	@OneToOne(cascade = CascadeType.ALL)
+	private BensFamiliares bensFamiliares;
+	@OneToOne(cascade = CascadeType.ALL)
+	private DespesasFamiliares despesasFamiliares;
+	private String recebeBeneficioPublico;
+	private String beneficioPublico;
+	private String recebeBeneficioParticular;
+	private String beneficioParticular;
 	
 }

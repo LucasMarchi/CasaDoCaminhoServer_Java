@@ -2,10 +2,10 @@ package com.casadocaminho.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -27,8 +27,15 @@ public class Projeto {
 	private String sustentabilidadeDoProjeto;
 	private String cronogramaAtividades;
 	private String equpeExecutora;
-	//TODO: especifidades do projeto Ex: itens cesta básica
-	@OneToMany(cascade = CascadeType.ALL)
+	//fazer: especifidades do projeto Ex: itens cesta básica
+	@OneToMany
+	@JoinColumn(name = "voluntario_id")
 	private List<Voluntario> voluntarios;
+	@OneToMany
+	@JoinColumn(name = "beneficiario_id")
+	private List<Beneficiario> beneficiarios;
+	@OneToMany
+	@JoinColumn(name = "doador_id")
+	private List<Doador> doadores;
 
 }

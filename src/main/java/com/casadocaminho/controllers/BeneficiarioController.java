@@ -43,8 +43,8 @@ public class BeneficiarioController {
 
 	@PutMapping
 	public ResponseEntity<?> atualizar(@RequestBody Beneficiario beneficiario) {
-		beneficiarioRepository.save(beneficiario);
-		return new ResponseEntity<>(HttpStatus.OK);
+		Beneficiario beneficiarioPersistido = beneficiarioRepository.save(beneficiario);
+		return ResponseEntity.ok().body(beneficiarioPersistido);
 	}
 
 	@DeleteMapping("/{id}")

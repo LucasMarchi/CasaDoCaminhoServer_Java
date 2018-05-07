@@ -1,9 +1,12 @@
 package com.casadocaminho.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
@@ -37,5 +40,7 @@ public class Beneficiario {
 	private String cpf;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Perfil perfil;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Familiar> familiares;
 
 }

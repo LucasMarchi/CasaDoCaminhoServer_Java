@@ -26,7 +26,7 @@ public class Projeto {
 	private String recursosCasaDoCaminho;
 	private String sustentabilidadeDoProjeto;
 	private String cronogramaAtividades;
-	private String equpeExecutora;
+	private String equipeExecutora;
 	//fazer: especifidades do projeto Ex: itens cesta básica
 	@OneToMany
 	@JoinColumn(name = "voluntario_id")

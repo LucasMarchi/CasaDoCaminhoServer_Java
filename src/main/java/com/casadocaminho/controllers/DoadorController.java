@@ -34,6 +34,11 @@ public class DoadorController {
 	public Optional<Doador> getDoador(@PathVariable("id") Long id) {
 		return doadorRepository.findById(id);
 	}
+	
+	@GetMapping("/documento/{documento}")
+	public Optional<Doador> getDoadorByDocumeto(@PathVariable("documento") String documento) {
+		return doadorRepository.findByDocumento(documento);
+	}
 
 	@PostMapping
 	public ResponseEntity<?> cadastrar(@RequestBody Doador doador) {

@@ -2,6 +2,7 @@ package com.casadocaminho.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,8 +22,7 @@ public class Doacao {
 	@OneToOne
 	@JoinColumn(name = "doador_id")
 	private Doador doador;
-	@OneToMany
-	@JoinColumn(name = "item_id")
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Item> itens;
 
 }

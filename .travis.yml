@@ -11,5 +11,5 @@ deploy:
   secure: $HEROKU_API_KEY
  app: casadocaminhoserver
 
- notifications:
-    slack: tcc-ifsp:ZdbsttW2hgPXLSLa83RiFyM8
+notifications:
+ slack: tcc-ifsp:ZdbsttW2hgPXLSLa83RiFyM8

@@ -1,4 +1,4 @@
--- Insere Voluntários
+/*-- Insere Voluntários
 INSERT INTO voluntario (id, nome) VALUES (-1, 'voluntario teste -1');
 
 INSERT INTO voluntario 
@@ -16,4 +16,4 @@ INSERT INTO doador (id, nome, documento) VALUES (-1, 'doador teste -1', '464.684
 INSERT INTO projeto (id, nome) VALUES (-1, 'projeto teste -1');
 
 -- Insere Doações
-INSERT INTO doacao (id, doador_id) VALUES (-1, -1);
+INSERT INTO doacao (id, doador_id) VALUES (-1, -1);*/

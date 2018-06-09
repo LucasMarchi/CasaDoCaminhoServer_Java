@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.casadocaminho.models.Doador;
 import com.casadocaminho.repositories.DoadorRepository;
+import com.casadocaminho.utils.FormatUtil;
 
 @RestController
 @RequestMapping("/doadores")
@@ -35,8 +36,9 @@ public class DoadorController {
 		return doadorRepository.findById(id);
 	}
 	
-	@GetMapping("/documento/{documento}")
-	public Optional<Doador> getDoadorByDocumeto(@PathVariable("documento") String documento) {
+	@GetMapping("/documento/{documento}/{tipo}")
+	public Optional<Doador> getDoadorByDocumeto(@PathVariable("documento") String documento, @PathVariable("tipo") String tipo) {
+		documento = (tipo == "Física") ? FormatUtil.formatCPF(documento) : FormatUtil.formatCNPJ(documento);
 		return doadorRepository.findByDocumento(documento);
 	}
 
@@ -57,4 +59,5 @@ public class DoadorController {
 		 doadorRepository.deleteById(id);
 		 return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
 }

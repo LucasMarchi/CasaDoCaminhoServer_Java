@@ -38,7 +38,7 @@ public class DoadorController {
 	
 	@GetMapping("/documento/{documento}/{tipo}")
 	public Optional<Doador> getDoadorByDocumeto(@PathVariable("documento") String documento, @PathVariable("tipo") String tipo) {
-		documento = (tipo == "Física") ? FormatUtil.formatCPF(documento) : FormatUtil.formatCNPJ(documento);
+		documento = (tipo.equals("Física")) ? FormatUtil.formatCPF(documento) : FormatUtil.formatCNPJ(documento);
 		return doadorRepository.findByDocumento(documento);
 	}
 

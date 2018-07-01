@@ -15,6 +15,8 @@ public class Familiar {
 	@Id
 	@GeneratedValue
 	private Long id;
+	private Long idade;
+	private Long tamanhoCalcado;
 	private String nome;
 	private String parentesco;
 	private String escolaridade;
